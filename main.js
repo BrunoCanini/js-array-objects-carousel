@@ -35,19 +35,22 @@ const containerJs = document.getElementById("containerHtml");
 const btnGoJs = document.getElementById("btnGoHtml");
 const btnBackJs = document.getElementById("btnBackHtml");
 
-btnGoJs.addEventListener("click" , function(){
-
     for (let i = 0; i < PicList.length; i++) {
         const element = PicList[i];
 
-        let contentHtml = `<div class="card>`;
-        contentHtml += `<h1>${element.title}</h1>`;
-        contentHtml += `<p>${element.text}</p>`;
-        contentHtml += `<img>${element.image}</img>`;
-        contentHtml += `</div>`;
+        let contain = document.createElement("div");
+        contain.classList.add("contain"[i])
 
-        containerJs.innerHTML += contentHtml;
-        console.log(containerJs)        
+        let titleJs = document.createElement("h1");
+        titleJs.innerText = `${element.title}`;
+
+        let textJs = document.createElement("p");
+        textJs.innerText = `${element.text}`;
+
+        let imgJs = document.createElement("img");
+        imgJs.src = `${element.image}`;
+
+        contain.append(titleJs , textJs , imgJs);
+        containerJs.append(contain);
+
     }
-
-})
