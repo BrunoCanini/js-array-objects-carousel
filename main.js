@@ -1,4 +1,4 @@
-const PicList = 
+const picList = 
 [
     {
         image: 'img/01.webp',
@@ -35,11 +35,12 @@ const containerJs = document.getElementById("containerHtml");
 const btnGoJs = document.getElementById("btnGoHtml");
 const btnBackJs = document.getElementById("btnBackHtml");
 
-    for (let i = 0; i < PicList.length; i++) {
-        const element = PicList[i];
+    for (let i = 0; i < picList.length; i++) {
+        const element = picList[i];
 
         let contain = document.createElement("div");
         contain.classList.add("contain"[i])
+        contain.classList.add("invisible")
 
         let titleJs = document.createElement("h1");
         titleJs.innerText = `${element.title}`;
@@ -52,5 +53,9 @@ const btnBackJs = document.getElementById("btnBackHtml");
 
         contain.append(titleJs , textJs , imgJs);
         containerJs.append(contain);
+
+        if ( i === 0 ){
+            contain.classList.add("visible")
+        }
 
     }
