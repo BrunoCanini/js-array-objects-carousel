@@ -42,7 +42,7 @@ const caroselList = []
         let contain = document.createElement("div");
         contain.classList.add("contain"[i])
         contain.classList.add("invisible")
-        contain.classList.add("widthHeight")
+        contain.classList.add("whidthHaight")
 
         let titleJs = document.createElement("h1");
         titleJs.innerText = `${element.title}`;
@@ -52,6 +52,7 @@ const caroselList = []
 
         let imgJs = document.createElement("img");
         imgJs.src = `${element.image}`;
+        imgJs.classList.add("dimensione")
 
         contain.append(imgJs , titleJs , textJs);
         containerJs.append(contain);
