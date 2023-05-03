@@ -56,3 +56,8 @@ div.visible{
     display: none;
 }
 
+.whidthHaight{
+    width: 100%;
+    height: 100%;
+}
+

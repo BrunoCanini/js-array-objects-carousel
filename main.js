@@ -34,6 +34,7 @@ const picList =
 const containerJs = document.getElementById("containerHtml");
 const btnGoJs = document.getElementById("btnGoHtml");
 const btnBackJs = document.getElementById("btnBackHtml");
+const caroselList = []
 
     for (let i = 0; i < picList.length; i++) {
         const element = picList[i];
@@ -41,6 +42,7 @@ const btnBackJs = document.getElementById("btnBackHtml");
         let contain = document.createElement("div");
         contain.classList.add("contain"[i])
         contain.classList.add("invisible")
+        contain.classList.add("widthHeight")
 
         let titleJs = document.createElement("h1");
         titleJs.innerText = `${element.title}`;
@@ -51,11 +53,45 @@ const btnBackJs = document.getElementById("btnBackHtml");
         let imgJs = document.createElement("img");
         imgJs.src = `${element.image}`;
 
-        contain.append(titleJs , textJs , imgJs);
+        contain.append(imgJs , titleJs , textJs);
         containerJs.append(contain);
 
         if ( i === 0 ){
             contain.classList.add("visible")
         }
 
+        caroselList.push(contain);
+        console.log(caroselList)
+        
+
     }
+
+    let iNow = 0
+
+    btnGoJs.addEventListener("click" , function(){
+
+        caroselList[iNow].classList.remove("visible")
+
+        if( iNow === caroselList.length-1 ){
+            iNow = 0;
+        }else{
+            iNow++;
+        }
+    
+        caroselList[iNow].classList.add("visible")
+
+    });
+
+    btnBackJs.addEventListener( "click" , function(){
+
+        caroselList[iNow].classList.remove("visible")
+
+        if(iNow === 0){
+            iNow = caroselList.length-1
+        }else{
+            iNow--;
+        }
+    
+        caroselList[iNow].classList.add("visible")
+
+    })
