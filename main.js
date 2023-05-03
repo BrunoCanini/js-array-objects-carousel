@@ -31,9 +31,23 @@ const PicList =
     }
 ]
 
-const btnGoJs = document.getElementById("btnGoHtml")
+const containerJs = document.getElementById("containerHtml");
+const btnGoJs = document.getElementById("btnGoHtml");
+const btnBackJs = document.getElementById("btnBackHtml");
+
 btnGoJs.addEventListener("click" , function(){
 
-    
+    for (let i = 0; i < PicList.length; i++) {
+        const element = PicList[i];
+
+        let contentHtml = `<div class="card>`;
+        contentHtml += `<h1>${element.title}</h1>`;
+        contentHtml += `<p>${element.text}</p>`;
+        contentHtml += `<img>${element.image}</img>`;
+        contentHtml += `</div>`;
+
+        containerJs.innerHTML += contentHtml;
+        console.log(containerJs)        
+    }
 
 })
